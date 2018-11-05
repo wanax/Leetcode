@@ -1,0 +1,88 @@
+LC124
+LC297
+LC238
+题号仕
+LC387
+349
+17
+211
+124
+300
+158
+
+big number to english
+
+
+第一轮印度人，两个题，
+第一个判断二部图，问了一堆follow up，我觉得bug free了。第二个read4k，思路讲完，最后就差一行没写完，跟他也讲清楚了，edgecase什么的也讨论了。
+第二轮behavior轮，中国人，问了二十分钟简历，讲了实习project，聊的很开心，然后给我水了一道二分查找的变种，test 和follow up都做了。很满意
+第三轮technical，亚洲小姐姐，两道题
+第一道两set求交，各种大小情况分析一遍，bug free过，第二道deep clone 一个graph，也是连test加follow up问遍了，感觉她很满意，提前结束
+
+
+round 1：hr 问题：1. 为什么选fb  2. 你最大challege 在工作中是什么。3 what is your role model 在工作中。 hr 最后15min 一道algorithm： matrix triangle filp。 hr也是cs出身，看样子。
+round 2: machine learning design:  in youtube search engineer： 如果你想search key word “machine”， 当你type “ma”时， 可能多种选择 “map”， “mat”。。。how to rank it。 how to search in database。. visit 1point3acres for more.
+round 3: leetcode 314. Binary Tree Vertical Order Traversal
+round 4: leetcode 102. Binary Tree Level Order Traversal
+round 5: system design： goe 题： 给你 p（latitude，longitude） search 一个 半径 n miles 的circle 内所有 p（latitude，longitude）。 如何get database， 怎么存 database，设计怎么search。 map reduce 之类
+round 6: math 题关于 income tax问题： 举个例子 income 10 000： tax 5% ， 超过部分 10 000 -20 000: 超过部分tax 10%。。。。。。
+
+
+第一轮电面
+1. Integer to English word
+2. find k largest number in an array
+这两题都比较straight forward. from: 1point3acres
+. 1point3acres
+第二轮电面
+一道比较像 158 的题目，但是不完全一样，反正就是读file.1point3acres网
+这题一开始一个solution写出来被面试官指出有大问题，然后全部重新写，最后刚好写完
+
+1) Talk out loud; Repeat the question back to your interviewer to ensure you fully understand what’s being asked.
+2) Ask questions about edge cases.
+3) Take your time to think about a solution before coding.
+4) Start coding while explaining your entire thought process. It’s encouraged to talk out loud. Don’t worry if you run into trouble! Feel free to ask your interviewer for a hint.
+5) Run through your solution with test cases. Continue talking out loud.
+6) Iterate – how can you do better with runtime/memory?
+
+
+
+coding基本套路：
+确认问题是什么。面试官期待你问很多问题，比如数组大小、越界怎么办、是int还是double、有重复吗、入参是什么、返回值是什么、按什么排序、边界条件有哪些，等等。同时，举几个简单的例子，与面试官互动，确保你真正理解了问题。
+尝试一个暴力解法并分析时间空间复杂。但是切记，暴力解法说明即可，不需要写代码。
+用最优解法来解并分析时间空间复杂度，得到面试官同意后，动手写代码。一边写一边记得与面试官沟通，确保在正确的道路上。如果面试官有问题打断你，绝大多数情况下是因为你的代码有问题，应该停止书写，并且与面试官沟通，及时解决。如果实在不知道怎么沟通，可以直接口述你手上写的代码。记住，一旦下笔，手速一定要够快，FB比较看重move fast。
+写完后，自己检查代码，并确认边际条件有哪些，你是怎么处理的，最好是自己写几个test case来跑。然后，说明一下，如果再给你一些资源（比如更多时间，更多cpu，更多存储），你会怎么改让你的代码效率更高。
+把写好的代码交给面试官，听并且回答follow up。
+
+
+design基本套路：
+确认问题是什么。面试官期待你问很多问题，比如这个架构的应用场景是什么，有什么功能（涉及到具体的业务场景），有什么限制（cpu，gpu，存储，RT，QPS等等）与面试官互动，确保你了解了问题。
+把提纲写在白板上，然后每条提纲逐条深入来讲。最重要的不是你用了什么，而是你为什么要这么用。
+多与面试官沟通并察言观色，进一步了解面试官想问你的问题是什么，他期待你能回答到什么点上。这个除了经验，基本也是靠猜了。
+画架构图的时候不一定要求专业、美观，但一定要有理有据，条理清晰。
+结束后，向面试官说明，如果再给多一些资源，你会从哪几个方面去提高。
+面试官一般会问一个问题：你的架构优缺点是什么，在什么时候会出问题，你打算如何设计来更好的解决这些潜在的问题？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
