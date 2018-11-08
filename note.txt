@@ -10,6 +10,18 @@ LC387
 300
 158
 
+50
+278
+283
+214
+418
+246
+247
+133
+658
+25
+k nearest node
+
 big number to english
 
 

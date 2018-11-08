@@ -1,6 +1,8 @@
 '''
 Xiaochi Ma
 2018-11-01
+
+Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
 '''
 
 class Solution:
@@ -44,3 +46,31 @@ if __name__ == '__main__':
     
     solution = Solution()
     print(solution.validPalindrome("yd"))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
