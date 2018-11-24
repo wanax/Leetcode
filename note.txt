@@ -13,8 +13,8 @@ LC387
 50
 278
 283
-214
-418
+214 Shortest Palindrome
+418 Sentence Screen Fitting
 246
 247
 133

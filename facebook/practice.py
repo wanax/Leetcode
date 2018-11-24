@@ -3,7 +3,7 @@ Xiaochi Ma
 2018-11-06
 '''
 
-def missingWords(s, t):
+def missingWords2(s, t):
     
     s = s.strip()
     t = t.strip()
@@ -34,8 +34,31 @@ def missingWords(s, t):
     
     return res
 
+def missingWords(s, t):
+    
+    s = s.strip()
+    t = t.strip()
+    
+    ss = s.split(" ")
+    tt = t.split(" ")
+    
+    res = []
+    i, j = 0, 0
+    while i < len(ss) and j < len(tt):
+        if ss[i] != tt[j]:
+           res.append(ss[i])
+        else:
+            j += 1
+        i += 1
+    
+    while i < len(ss):
+        res.append(ss[i])
+        i += 1
+    
+    return res
+
 if __name__ == '__main__':
-    print(missingWords("2 2", "2"))
+    print(missingWords("I am using HackerRank to improve programming", "am HackerRank to improve"))
     
     
     
