@@ -55,10 +55,25 @@ class Solution(object):
             n -= 1
         return ugly[-1]
     
+    def nthSuperUglyNumber(self, n, primes):
+        
+        res = [1]
+        ii = [0] * len(primes)
+        while len(res) < n:
+            los = list(map(lambda x,y:x*res[y], primes, ii))
+            um = min(los)
+            for i in range(len(primes)):
+                if los[i] == um:
+                    ii[i] += 1
+#            if um not in res:
+            res.append(um)
+        
+        return res[-1]
+    
 if __name__ == '__main__':
     
     solution = Solution()
-    print(solution.nthUglyNumber(16))
+    print(solution.nthSuperUglyNumber(12, [2,7,13,19]))
     
     
     
