@@ -28,6 +28,7 @@ import bisect
 from functools import reduce
 import re
 import string
+import numpy as np
 
 class Node:
     def __init__(self, val):
@@ -36,36 +37,36 @@ class Node:
         self.random = 0
         
 class Solution(object):
-    
-    def dfs(self, n, i, j, mem):
-        if n == 0:
-            return 1
-        if (i,j,n) in mem:
-            return mem[(i,j,n)]
-        cur = 0
-        vs = [[1,-2],[1,2],[-1,-2],[-1,2],[2,-1],[2,1],[-2,-1],[-2,1]]
-        for v in vs:
-            ni, nj = i+v[0], j+v[1]
-            if (0<=ni<=2 and 0<=nj<=2) or (ni==3 and nj==1):
-                cur += self.dfs(n-1, ni, nj, mem)%(10**9+7)
-        mem[(i,j,n)] = cur
-        return cur
-    def knightDialer(self, N):
-        mem = {}
-        ans = 0
-        for i in range(3):
-            for j in range(3):
-                ans += self.dfs(N-1, i, j, mem)
-        ans += self.dfs(N-1, 3, 1, mem)
-        return ans%(10**9+7)
-                
+    def findOrder(self, numCourses, prerequisites):
+        pres = [0]*numCourses
+        dic = collections.defaultdict(list)
+        for pre in prerequisites:
+            pres[pre[0]] += 1
+            dic[pre[1]].append(pre[0])
+        q = []   
+        for i, c in enumerate(pres):
+            if c == 0:
+                q.append(i)
+        
+        vis = q[:]
+        while q:
+            k = len(q)
+            for i in range(k):
+                p = q.pop(0)
+                for c in dic[p]:
+                    pres[c] -= 1
+                    if pres[c] == 0:
+                        q.append(c)
+                        vis.append(c)
+        return vis
     
 if __name__ == '__main__':
     
     so = Solution()
-    print(so.knightDialer(3589))
-
-
+    print(so.findOrder(2, [[1,0]]))
+    arr = [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
+    arr.sort(key=lambda x: (x[1],x[0]))
+    print(arr)
 
 
 
