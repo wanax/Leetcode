@@ -18,7 +18,10 @@ class ListNode(object):
      def __init__(self, x):
          self.val = x
          self.next = None
-         
+
+import functools
+import copy
+from operator import itemgetter         
 import string
 import math
 import heapq
@@ -29,45 +32,43 @@ from functools import reduce
 import re
 import string
 import numpy as np
+from itertools import permutations 
 
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = 0
-        self.random = 0
-        
 class Solution(object):
-    def findOrder(self, numCourses, prerequisites):
-        pres = [0]*numCourses
-        dic = collections.defaultdict(list)
-        for pre in prerequisites:
-            pres[pre[0]] += 1
-            dic[pre[1]].append(pre[0])
-        q = []   
-        for i, c in enumerate(pres):
-            if c == 0:
-                q.append(i)
+    def rearrangeString(self, s, k):
+        count = collections.Counter(s)
+        order = collections.OrderedDict(sorted(count.items(), key=lambda x:x[1], reverse=True))
         
-        vis = q[:]
-        while q:
-            k = len(q)
-            for i in range(k):
-                p = q.pop(0)
-                for c in dic[p]:
-                    pres[c] -= 1
-                    if pres[c] == 0:
-                        q.append(c)
-                        vis.append(c)
-        return vis
+        keys = list(order.keys())
+        bucks = [[keys[0]] for i in range(order[keys[0]])]
+        
+        i = 1
+        row = 0
+        while i < len(keys):
+            c = order[keys[i]]
+            while c > 0:
+                bucks[row].append(keys[i])
+                row = (row+1)%(len(bucks)-1)
+                c -= 1
+            i += 1
+            
+        for i, row in enumerate(bucks):
+            if i != len(bucks)-1:
+                if len(row) < k:
+                    return ""
+        
+        return "".join(list(reduce(lambda x,y:x+y, bucks)))
     
 if __name__ == '__main__':
     
-    so = Solution()
-    print(so.findOrder(2, [[1,0]]))
-    arr = [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
-    arr.sort(key=lambda x: (x[1],x[0]))
-    print(arr)
+    s = Solution()
+    print(s.rearrangeString("abeabac", 3))
+        
+    
+    
 
+
+    
 
 
     
