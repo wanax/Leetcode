@@ -63,6 +63,8 @@ if __name__ == '__main__':
     
     s = Solution()
     print(s.rearrangeString("abeabac", 3))
+    
+    print(1%3)
         
     
     
