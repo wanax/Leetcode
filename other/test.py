@@ -19,6 +19,7 @@ class ListNode(object):
          self.val = x
          self.next = None
 
+import random
 import functools
 import copy
 from operator import itemgetter         
@@ -35,37 +36,37 @@ import numpy as np
 from itertools import permutations 
 
 class Solution(object):
-    def rearrangeString(self, s, k):
-        count = collections.Counter(s)
-        order = collections.OrderedDict(sorted(count.items(), key=lambda x:x[1], reverse=True))
-        
-        keys = list(order.keys())
-        bucks = [[keys[0]] for i in range(order[keys[0]])]
-        
-        i = 1
-        row = 0
-        while i < len(keys):
-            c = order[keys[i]]
-            while c > 0:
-                bucks[row].append(keys[i])
-                row = (row+1)%(len(bucks)-1)
-                c -= 1
-            i += 1
+    def dfs(self, s, p, i, j, mem):
+        if j == len(p):
+            if i == len(s):
+                return True
+            else:
+                return False
+        if (i, j) in mem > 0:
+            return mem[i,j]
+        tag = False
+        first_m = (i<len(s) and (s[i] == p[j] or p[j]=='.'))
+        if j+1<len(p) and p[j+1]=='*':
+            tag = (first_m and self.dfs(s, p, i+1, j, mem)) or self.dfs(s, p, i, j+2, mem)
+        else:
+            tag = first_m and self.dfs(s, p, i+1, j+1, mem)
             
-        for i, row in enumerate(bucks):
-            if i != len(bucks)-1:
-                if len(row) < k:
-                    return ""
-        
-        return "".join(list(reduce(lambda x,y:x+y, bucks)))
+        if tag:
+            mem[i, j] = True
+        return tag
+                
+    def isMatch(self, s, p):
+        mem = {}
+        return self.dfs(s, p, 0, 0, mem)
+                    
+                    
     
 if __name__ == '__main__':
     
     s = Solution()
-    print(s.rearrangeString("abeabac", 3))
+    print(s.isMatch("ab",".*"))
     
-    print(1%3)
-        
+    
     
     
 
